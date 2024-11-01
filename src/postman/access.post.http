@@ -1,0 +1,52 @@
+@url_dev = http://0.0.0.0:3056/v1/api
+
+### registered
+POST {{url_dev}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "PuYet111111",
+  "email": "puyet123456@example.com",
+  "password": "password123"
+}
+
+### Login
+POST {{url_dev}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "puyet123456@example.com",
+  "password": "password123"
+}
+
+### save token
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE5ZGE1MDBmNzJjOTM1ODdiYzI5YjUiLCJlbWFpbCI6InB1eWV0MTIzNDU2QGV4YW1wbGUuY29tIiwiaWF0IjoxNzI5NzQ3NTM3LCJleHAiOjE3Mjk5MjAzMzd9.Xn72z8PSiuMJEsAM4WYV7CX3H74JAHjG2w92uP06jpDlxPbXxcbTJhNbVAbElE_Rqm6o75MryJRa0Wi29foalfRHW5ILih8uH91SoMXoOllqsJTuekgdTsuiwf7yYG_arGpTOJt1VCiODCgmFw-Uq1NBH5nktvPxoCWvn_IyX3Jn080SjAXnUHZ8vU884pMGcwiAXOYGTOVUCGEBgV8QFmuGo4_YQ0JtIlHpXUKSbHvsWpFpnre5gEPQUJZ9pAqCyWYTbwmX0o5W7vMHO3h8TrLoj8LA97KXDiKRrgXEWA-gPU7Q5oLtgqdWjfVq7rqniYoI0FJ16wZSw9f-lzUh-62Z2-XKH_pbiUTncUqdEUtPkUQjl8m7i08Is6FURWPrRt1W03rVIIIx8AhVvKGuVXr47uX09p-8QttmpBNnlex14cgBGXSdEyhuuCbRGVJKAbTlnvGXWl2GGw1z8D4Qawfd0l9tv9fU3i7aRcnOqgs342jQYrpwQCqqZ3gVIOI_s0-Hm8W_eIqT81qOEuCv2sAVFMAsY53TZyU58qkIfkmSh0t7pAIp1Z0Joo4bQnOcoTwiHOYTZCK0qlEWtcUd-3OyUqqccy7kD3ATjGeWuThwUBkxnvA1FE9jlE4OXIhpO-iCHGvs2JfGV_t5NTT6GVgaFitCNcFnUZe39nIf1X8
+
+### create task
+POST {{url_dev}}/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Complete Node.js project",
+  "description": "Finish the task management API"
+}
+
+### get task
+GET {{url_dev}}/tasks
+Authorization: Bearer {{token}}
+
+### update task
+PUT {{url_dev}}/tasks/6719da500f72c93587bc29b5
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Updated Task Title",
+  "description": "Updated Task Description",
+  "status": "completed"
+}
+
+### delete task
+DELETE {{url_dev}}/tasks/6719da500f72c93587bc29b5
+Authorization: Bearer {{token}}
